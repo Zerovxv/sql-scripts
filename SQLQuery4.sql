@@ -1,6 +1,4 @@
-select Sum(InvoiceTotal) as total,
-	count(*) as Count,
-	avg(invoicetotal) as average,
-	min(invoicetotal) as Min,
-	Max(invoicetotal) as Max
-from Invoices
+select *
+from Terms t
+left join invoices i
+ on i.termsID = i.TermsID

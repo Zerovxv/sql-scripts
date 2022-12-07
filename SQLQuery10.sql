@@ -1,5 +1,6 @@
-select InvoiceNumber as Number,
-invoicetotal as Total, 
-sum(PaymentTotat + Credittotal) as credit 
-sum(invoicetotal - (paymenttotal + credittotal)) as Balance
-From Invoices 
+select g.accountno, accountdescription
+from GLAccounts g
+left join InvoiceLineItems i
+on g.accountno = i.accountno
+where Invoiceid is null
+order by g.accountno
